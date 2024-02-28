@@ -163,13 +163,18 @@ public class Blackjack {
 
     private String getDealerHand() {
         StringBuilder handString = new StringBuilder();
-        for (int i = 0; i < dealer.size(); i++) {
-            if (i == 0) {
-                handString.append(dealer.get(i)).append(" (Hidden) ");
+        boolean firstCard = true;
+
+        for (Card card : dealer) {
+            if (firstCard) {
+                handString.append(card).append(" ");
+                firstCard = false;
             } else {
-                handString.append(dealer.get(i)).append(" ");
+                handString.append(card).append(" ");
             }
         }
+
         return handString.toString();
     }
+
 }
